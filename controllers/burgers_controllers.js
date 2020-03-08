@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   burger.all(function(data) {
     let hbsObject = {
-      burges: data
+      burgers: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
@@ -13,27 +13,15 @@ router.get("/", (req, res) => {
 });
 
 router.post("/api/burgers", (req, res) => {
-  burger.create("burger_name", req.body.name, function(result) {
-    res.json({ id: result.insertId });
+  burger.create(req.body.burger_name, function(result) {
+    res.redirect("/");
   });
 });
 
 router.put("/api/burgers/:id", (req, res) => {
-  let condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
-  burger.update(
-    {
-      devoured: req.body.devoured
-    },
-    condition,
-    function(result) {
-      if (result.changedRows == 0) {
-        return res.status(404).end();
-      } else {
-        res.status(200).end();
-      }
-    }
-  );
+  burger.devour(req.params.id, function(result) {
+    res.send("");
+  });
 });
+
+module.exports = router;
