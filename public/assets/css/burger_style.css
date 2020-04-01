@@ -1,0 +1,17 @@
+body {
+  background-color: orange;
+  color: white;
+  font-family: "Spicy Rice", cursive;
+}
+
+.main {
+  padding: 100px;
+}
+
+.picture {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}

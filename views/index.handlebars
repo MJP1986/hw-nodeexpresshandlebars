@@ -1,34 +1,47 @@
-<h2>Burgers</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    <li style="list-style-type:none">
-        {{this.burger_name}}
-        <button class="change-devoured" data-id={{this.id}}>Devour it</button>
-    </li>
-    {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Devoured Burgers</h2>
-
-<ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    <li style="list-style-type:none">
-        {{this.burger_name}}
-    </li>
-    {{/if}}
-    {{/each}}
-</ul>
-
-
-<h2>Add a burger</h2>
-<form class="create-form" method="post" action="/api/burgers">
-    <div class="form-group">
-        <label for="ca">Burgers Name:</label>
-        <input type="text" id="ca" name="burger_name">
+<div class="container main">
+    <div class="row">
+        <div class="col-md-4 mt-4">
+            <h2>Burgers</h2>
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                <li style="list-style-type:none">
+                    {{this.burger_name}}
+                    <button class="change-devoured" data-id={{this.id}}>Devour it</button>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-4 mt-4 picture"> <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQOP3Ao-DECa_e-ToI9IOGJNvpF_onJDREMvW1wDPDS9dtu5Gki&amp;usqp=CAU"
+                alt="burger" style="width: 200px; height: 200px; margin: 0px;">
+        </div>
+        <div class="col-md-4 mt-4">
+            <h2>Devoured Burgers</h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li style="list-style-type:none">
+                    {{this.burger_name}}
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
     </div>
-    <button type="submit">Add Burger</button>
-</form>
+</div>
+<div class="row">
+    <div class="col-md-4 mt-4"></div>
+    <div class="col-md-4 mt-4 center">
+        <h2>Add a burger</h2>
+        <form class="create-form" method="post" action="/api/burgers">
+            <div class="form-group">
+                <label for="ca">Burgers Name:</label>
+                <input type="text" id="ca" name="burger_name">
+            </div>
+            <button type="submit">Add Burger</button>
+        </form>
+    </div>
+    <div class="col-md-4 mt-4"></div>
+</div>
